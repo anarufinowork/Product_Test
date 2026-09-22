@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Produto em Realidade Aumentada</title>
 
@@ -13,61 +16,79 @@
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
 
     <style>
+
         body {
             margin: 0;
             overflow: hidden;
         }
 
-        #loading {
+        #mensagem {
             position: fixed;
             top: 20px;
-            left: 20px;
-            z-index: 10;
+            left: 0;
+            right: 0;
+
+            text-align: center;
+
             color: white;
             font-family: Arial, sans-serif;
+
+            z-index: 10;
         }
+
     </style>
+
 </head>
 
 <body>
 
-    <div id="loading">
-        A apontar para o cartaz...
+    <div id="mensagem">
+        Aponte a câmara para a imagem.
     </div>
 
-    <a-scene
-        mindar-image="imageTargetSrc: target.mind;"
-        embedded
-        color-space="sRGB"
-        renderer="colorManagement: true, physicallyCorrectLights"
-        vr-mode-ui="enabled: false"
-        device-orientation-permission-ui="enabled: false">
 
-        <!-- Câmara -->
+    <a-scene
+
+        mindar-image="
+            imageTargetSrc: Poster_Box_Trigger.mind;
+        "
+
+        embedded
+
+        color-space="sRGB"
+
+        renderer="
+            colorManagement: true,
+            physicallyCorrectLights
+        "
+
+        vr-mode-ui="enabled: false"
+
+        device-orientation-permission-ui="enabled: false"
+    >
+
+
+        <!-- Câmara do telemóvel -->
+
         <a-camera
             position="0 0 0"
             look-controls="enabled: false">
         </a-camera>
 
-        <!-- Imagem-alvo -->
-        <a-entity mindar-image-target="targetIndex: 0">
 
-            <!-- PRODUTO 3D -->
-            <a-gltf-model
-                src="#produto"
-                position="0 0 0"
-                scale="1 1 1">
-            </a-gltf-model>
+        <!-- IMAGEM RECONHECIDA -->
+
+        <a-entity
+            mindar-image-target="targetIndex: 0">
+
+
+            <!--
+            O produto 3D vai entrar aqui
+            -->
+
 
         </a-entity>
 
-        <!-- Modelo 3D -->
-        <a-assets>
-            <a-asset-item
-                id="produto"
-                src="produto.glb">
-            </a-asset-item>
-        </a-assets>
 
     </a-scene>
 
