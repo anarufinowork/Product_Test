@@ -79,14 +79,14 @@
         <!-- IMAGEM RECONHECIDA -->
 
         <a-entity
-            mindar-image-target="targetIndex: 0">
+            mindar-image-target="targetIndex: 0"
+            id="target">
 
-
-                <a-box
-                    position="0 0 0"
-                    scale="0.5 0.5 0.5"
-                    color="red">
-                </a-box>
+            <a-box
+                position="0 0 0"
+                scale="0.5 0.5 0.5"
+                color="red">
+            </a-box>
            
 
 
@@ -94,6 +94,22 @@
 
 
     </a-scene>
+<script>
 
+    const target = document.querySelector("#target");
+
+    target.addEventListener("targetFound", () => {
+        console.log("🎯 TARGET ENCONTRADO!");
+        document.getElementById("mensagem").innerText =
+            "🎯 Imagem encontrada!";
+    });
+
+    target.addEventListener("targetLost", () => {
+        console.log("❌ TARGET PERDIDO!");
+        document.getElementById("mensagem").innerText =
+            "Aponte a câmara para a imagem.";
+    });
+
+</script>
 </body>
 </html>
