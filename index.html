@@ -1,1 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Produto em Realidade Aumentada</title>
+
+    <!-- A-Frame -->
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+
+    <!-- MindAR -->
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #loading {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="loading">
+        A apontar para o cartaz...
+    </div>
+
+    <a-scene
+        mindar-image="imageTargetSrc: target.mind;"
+        embedded
+        color-space="sRGB"
+        renderer="colorManagement: true, physicallyCorrectLights"
+        vr-mode-ui="enabled: false"
+        device-orientation-permission-ui="enabled: false">
+
+        <!-- Câmara -->
+        <a-camera
+            position="0 0 0"
+            look-controls="enabled: false">
+        </a-camera>
+
+        <!-- Imagem-alvo -->
+        <a-entity mindar-image-target="targetIndex: 0">
+
+            <!-- PRODUTO 3D -->
+            <a-gltf-model
+                src="#produto"
+                position="0 0 0"
+                scale="1 1 1">
+            </a-gltf-model>
+
+        </a-entity>
+
+        <!-- Modelo 3D -->
+        <a-assets>
+            <a-asset-item
+                id="produto"
+                src="produto.glb">
+            </a-asset-item>
+        </a-assets>
+
+    </a-scene>
+
+</body>
+</html>
