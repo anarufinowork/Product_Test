@@ -94,8 +94,8 @@
 
         mindar-image="
         imageTargetSrc: Poster_Box_Trigger.mind;
-        filterMinCF: 2;
-        filterBeta: 2;
+        filterMinCF: 1;
+        filterBeta: 1;
         "
         embedded
         color-space="sRGB"
@@ -133,9 +133,9 @@
 
             <a-gltf-model
                 src="#produto"
-                position="-2 -1 0"
+                position="0 0 0"
                 rotation="0 0 0"
-                scale="2 2 2">
+                scale="1 1 1">
             </a-gltf-model>
 
 
@@ -179,7 +179,7 @@
                 document.getElementById(
                     "mensagem"
                 ).innerText =
-                    "Aponte a câmara para a imagem.";
+                    "Point your camera at the poster";
 
             }
         );
