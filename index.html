@@ -107,7 +107,13 @@
         device-orientation-permission-ui="enabled: false"
     >
 
-
+        <a-assets>
+            <a-asset-item
+                id="produto"
+                src="Poster_Caixa_Rebativel_S.glb">
+            </a-asset-item>
+        </a-assets>
+        
         <!-- CÂMARA -->
 
         <a-camera
@@ -125,17 +131,12 @@
 
             <!-- CUBO DE TESTE -->
 
-            <a-box
-
-                position="0 0 0.1"
-
+            <a-gltf-model
+                src="#produto"
+                position="0 0 0"
                 rotation="0 0 0"
-
-                scale="0.5 0.5 0.5"
-
-                color="red">
-
-            </a-box>
+                 scale="1 1 1">
+            </a-gltf-model>
 
 
         </a-entity>
