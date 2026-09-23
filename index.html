@@ -86,7 +86,7 @@
 
 
     <div id="mensagem">
-        Aponte a câmara para a imagem.
+        Point your camera at the poster
     </div>
 
 
@@ -94,8 +94,8 @@
 
         mindar-image="
         imageTargetSrc: Poster_Box_Trigger.mind;
-        filterMinCF: 1;
-        filterBeta: 1;
+        filterMinCF: 2;
+        filterBeta: 2;
         "
         embedded
         color-space="sRGB"
@@ -133,9 +133,9 @@
 
             <a-gltf-model
                 src="#produto"
-                position="0 0 0"
+                position="0.5 0.5 0"
                 rotation="0 0 0"
-                 scale="1 1 1">
+                scale="2 2 2">
             </a-gltf-model>
 
 
@@ -156,13 +156,13 @@
             () => {
 
                 console.log(
-                    "🎯 TARGET ENCONTRADO!"
+                    "TARGET ENCONTRADO!"
                 );
 
                 document.getElementById(
                     "mensagem"
                 ).innerText =
-                    "🎯 Imagem encontrada!";
+                    "Foldable Domples Box";
 
             }
         );
